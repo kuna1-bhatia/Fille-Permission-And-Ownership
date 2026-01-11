@@ -41,12 +41,6 @@ The project demonstrates how permissions work, how ownership is managed, and how
 
 ## 🚀 Steps Performed
 
-### 1️⃣ Create Directories
-```bash
-mkdir /tmp/user1_dir
-mkdir /tmp/user2_dir
-
-
 Example output:
 
 drwxr-xr-x 2 root root 4096 user1_dir
