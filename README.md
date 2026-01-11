@@ -46,9 +46,6 @@ The project demonstrates how permissions work, how ownership is managed, and how
 mkdir /tmp/user1_dir
 mkdir /tmp/user2_dir
 
-2️⃣ View Permissions
-ls -ld /tmp/user1_dir
-
 
 Example output:
 
