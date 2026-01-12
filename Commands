@@ -1,0 +1,372 @@
+kunal@DESKTOP-G4FKIEJ:~$ ls
+kunal@DESKTOP-G4FKIEJ:~$ ls -l
+total 0
+kunal@DESKTOP-G4FKIEJ:~$ ls -a
+.   .aws    .bash_history  .bashrc  .docker      .profile                   .viminfo
+..  .azure  .bash_logout   .cache   .motd_shown  .sudo_as_admin_successful
+kunal@DESKTOP-G4FKIEJ:~$ pwd
+/home/kunal
+kunal@DESKTOP-G4FKIEJ:~$ mkdir linux/
+kunal@DESKTOP-G4FKIEJ:~$ cd linux/
+kunal@DESKTOP-G4FKIEJ:~/linux$ touch myfile.txt
+kunal@DESKTOP-G4FKIEJ:~/linux$ ls
+myfile.txt
+kunal@DESKTOP-G4FKIEJ:~/linux$ cat myfile.txt
+kunal@DESKTOP-G4FKIEJ:~/linux$ echo "hello world" > myfile.txt
+kunal@DESKTOP-G4FKIEJ:~/linux$ echo "this is my first file" >> myfile.txt
+kunal@DESKTOP-G4FKIEJ:~/linux$ cat myfile.txt
+hello world
+this is my first file
+kunal@DESKTOP-G4FKIEJ:~/linux$ cd ..
+kunal@DESKTOP-G4FKIEJ:~$ pwd
+/home/kunal
+kunal@DESKTOP-G4FKIEJ:~$ ls
+linux
+kunal@DESKTOP-G4FKIEJ:~$ mkdir devops/
+kunal@DESKTOP-G4FKIEJ:~$ cd devops/
+kunal@DESKTOP-G4FKIEJ:~/devops$ ls
+kunal@DESKTOP-G4FKIEJ:~/devops$ touch devopsfile.txt
+kunal@DESKTOP-G4FKIEJ:~/devops$ ls
+devopsfile.txt
+kunal@DESKTOP-G4FKIEJ:~/devops$ cd ..
+kunal@DESKTOP-G4FKIEJ:~$ cd linux/
+kunal@DESKTOP-G4FKIEJ:~/linux$ cp myfile.txt devopsfile.txt
+kunal@DESKTOP-G4FKIEJ:~/linux$ cd ..
+kunal@DESKTOP-G4FKIEJ:~$ cd devops/
+kunal@DESKTOP-G4FKIEJ:~/devops$ ls
+devopsfile.txt
+kunal@DESKTOP-G4FKIEJ:~/devops$ cat devopsfile.txt
+kunal@DESKTOP-G4FKIEJ:~/devops$ cp myfile.txt devopsfile.txt
+cp: cannot stat 'myfile.txt': No such file or directory
+kunal@DESKTOP-G4FKIEJ:~/devops$ cd ..
+kunal@DESKTOP-G4FKIEJ:~$ cd linux/
+kunal@DESKTOP-G4FKIEJ:~/linux$ mv myfile.txt devops/
+mv: cannot move 'myfile.txt' to 'devops/': Not a directory
+kunal@DESKTOP-G4FKIEJ:~/linux$ mv -r myfile.txt devops/
+mv: invalid option -- 'r'
+Try 'mv --help' for more information.
+kunal@DESKTOP-G4FKIEJ:~/linux$ mv myfile.txt devopsfile.txt
+kunal@DESKTOP-G4FKIEJ:~/linux$ cd ..
+kunal@DESKTOP-G4FKIEJ:~$ cd devops/
+kunal@DESKTOP-G4FKIEJ:~/devops$ ls
+devopsfile.txt
+kunal@DESKTOP-G4FKIEJ:~/devops$ cat devopsfile.txt
+kunal@DESKTOP-G4FKIEJ:~/devops$ cd ..
+kunal@DESKTOP-G4FKIEJ:~$ cd linux/
+kunal@DESKTOP-G4FKIEJ:~/linux$ cat myfile.txt
+cat: myfile.txt: No such file or directory
+kunal@DESKTOP-G4FKIEJ:~/linux$ echo "hello world" > myfile.txt
+kunal@DESKTOP-G4FKIEJ:~/linux$ echo "this is my first file" >> myfile.txt
+kunal@DESKTOP-G4FKIEJ:~/linux$ cat myfile.txt
+hello world
+this is my first file
+kunal@DESKTOP-G4FKIEJ:~/linux$ cd ..
+kunal@DESKTOP-G4FKIEJ:~$ mkdir cloud/
+kunal@DESKTOP-G4FKIEJ:~$ ls
+cloud  devops  linux
+kunal@DESKTOP-G4FKIEJ:~$ rm -r cloud/
+kunal@DESKTOP-G4FKIEJ:~$ cd linux/
+kunal@DESKTOP-G4FKIEJ:~/linux$ ls
+devopsfile.txt  myfile.txt
+kunal@DESKTOP-G4FKIEJ:~/linux$ ln /home/linux/myfile.txt softlink
+ln: failed to access '/home/linux/myfile.txt': No such file or directory
+kunal@DESKTOP-G4FKIEJ:~/linux$ cd ..
+kunal@DESKTOP-G4FKIEJ:~$ ls
+devops  linux
+kunal@DESKTOP-G4FKIEJ:~$ cd linux/
+kunal@DESKTOP-G4FKIEJ:~/linux$ ls
+devopsfile.txt  myfile.txt
+kunal@DESKTOP-G4FKIEJ:~/linux$ pwd
+/home/kunal/linux
+kunal@DESKTOP-G4FKIEJ:~/linux$ ln -s /home/kunal/linux/myfile.txt softlink-file
+kunal@DESKTOP-G4FKIEJ:~/linux$ cd ..
+kunal@DESKTOP-G4FKIEJ:~$ ls
+devops  linux
+kunal@DESKTOP-G4FKIEJ:~$ pwd
+/home/kunal
+kunal@DESKTOP-G4FKIEJ:~$ cd linux/
+kunal@DESKTOP-G4FKIEJ:~/linux$ ls
+devopsfile.txt  myfile.txt  softlink-file
+kunal@DESKTOP-G4FKIEJ:~/linux$ rm softlink-file
+kunal@DESKTOP-G4FKIEJ:~/linux$ ls
+devopsfile.txt  myfile.txt
+kunal@DESKTOP-G4FKIEJ:~/linux$ cd ..
+kunal@DESKTOP-G4FKIEJ:~$ ln -s /home/kunal/linux/myfile.txt softlink-file
+kunal@DESKTOP-G4FKIEJ:~$ ls
+devops  linux  softlink-file
+kunal@DESKTOP-G4FKIEJ:~$ ls -l
+total 8
+drwxr-xr-x 2 kunal kunal 4096 Jan 12 14:59 devops
+drwxr-xr-x 2 kunal kunal 4096 Jan 12 15:09 linux
+lrwxrwxrwx 1 kunal kunal   28 Jan 12 15:10 softlink-file -> /home/kunal/linux/myfile.txt
+kunal@DESKTOP-G4FKIEJ:~$ chmod 777 linux/
+kunal@DESKTOP-G4FKIEJ:~$ ls -l
+total 8
+drwxr-xr-x 2 kunal kunal 4096 Jan 12 14:59 devops
+drwxrwxrwx 2 kunal kunal 4096 Jan 12 15:09 linux
+lrwxrwxrwx 1 kunal kunal   28 Jan 12 15:10 softlink-file -> /home/kunal/linux/myfile.txt
+kunal@DESKTOP-G4FKIEJ:~$ chmod myfile.txt
+chmod: missing operand after ‘myfile.txt’
+Try 'chmod --help' for more information.
+kunal@DESKTOP-G4FKIEJ:~$ cd linux/
+kunal@DESKTOP-G4FKIEJ:~/linux$ ls
+devopsfile.txt  myfile.txt
+kunal@DESKTOP-G4FKIEJ:~/linux$ ls -l
+total 8
+-rw-r--r-- 1 kunal kunal 34 Jan 12 14:58 devopsfile.txt
+-rw-r--r-- 1 kunal kunal 34 Jan 12 15:05 myfile.txt
+kunal@DESKTOP-G4FKIEJ:~/linux$ chmod 755 devopsfile.txt
+kunal@DESKTOP-G4FKIEJ:~/linux$ ls -l
+total 8
+-rwxr-xr-x 1 kunal kunal 34 Jan 12 14:58 devopsfile.txt
+-rw-r--r-- 1 kunal kunal 34 Jan 12 15:05 myfile.txt
+kunal@DESKTOP-G4FKIEJ:~/linux$ cd ..
+kunal@DESKTOP-G4FKIEJ:~$ cd linux/
+kunal@DESKTOP-G4FKIEJ:~/linux$ cat /etc/group
+root:x:0:
+daemon:x:1:
+bin:x:2:
+sys:x:3:
+adm:x:4:syslog,kunal
+tty:x:5:
+disk:x:6:
+lp:x:7:
+mail:x:8:
+news:x:9:
+uucp:x:10:
+man:x:12:
+proxy:x:13:
+kmem:x:15:
+dialout:x:20:kunal
+fax:x:21:
+voice:x:22:
+cdrom:x:24:kunal
+floppy:x:25:kunal
+tape:x:26:
+sudo:x:27:kunal
+audio:x:29:kunal
+dip:x:30:kunal
+www-data:x:33:
+backup:x:34:
+operator:x:37:
+list:x:38:
+irc:x:39:
+src:x:40:
+shadow:x:42:
+utmp:x:43:
+video:x:44:kunal
+sasl:x:45:
+plugdev:x:46:kunal
+staff:x:50:
+games:x:60:
+users:x:100:kunal
+nogroup:x:65534:
+systemd-journal:x:999:
+systemd-network:x:998:
+crontab:x:997:
+systemd-timesync:x:996:
+input:x:995:
+sgx:x:994:
+kvm:x:993:
+render:x:992:
+messagebus:x:101:
+syslog:x:102:
+systemd-resolve:x:991:
+uuidd:x:103:
+_ssh:x:104:
+landscape:x:105:
+polkitd:x:990:
+admin:x:106:
+netdev:x:107:kunal
+kunal:x:1000:
+linux:x:1001:
+docker:x:1002:kunal
+python:x:1004:
+java:x:1005:
+kunal@DESKTOP-G4FKIEJ:~/linux$ ls -l
+total 8
+-rwxr-xr-x 1 kunal kunal 34 Jan 12 14:58 devopsfile.txt
+-rw-r--r-- 1 kunal kunal 34 Jan 12 15:05 myfile.txt
+kunal@DESKTOP-G4FKIEJ:~/linux$ sudo chown java myfile.txt
+[sudo] password for kunal:
+kunal@DESKTOP-G4FKIEJ:~/linux$ ls -l
+total 8
+-rwxr-xr-x 1 kunal kunal 34 Jan 12 14:58 devopsfile.txt
+-rw-r--r-- 1 java  kunal 34 Jan 12 15:05 myfile.txt
+kunal@DESKTOP-G4FKIEJ:~/linux$ sudo chown java:group devopsfile.txt
+chown: invalid group: ‘java:group’
+kunal@DESKTOP-G4FKIEJ:~/linux$ sudo groupadd cloud
+kunal@DESKTOP-G4FKIEJ:~/linux$ cat /etc/group
+root:x:0:
+daemon:x:1:
+bin:x:2:
+sys:x:3:
+adm:x:4:syslog,kunal
+tty:x:5:
+disk:x:6:
+lp:x:7:
+mail:x:8:
+news:x:9:
+uucp:x:10:
+man:x:12:
+proxy:x:13:
+kmem:x:15:
+dialout:x:20:kunal
+fax:x:21:
+voice:x:22:
+cdrom:x:24:kunal
+floppy:x:25:kunal
+tape:x:26:
+sudo:x:27:kunal
+audio:x:29:kunal
+dip:x:30:kunal
+www-data:x:33:
+backup:x:34:
+operator:x:37:
+list:x:38:
+irc:x:39:
+src:x:40:
+shadow:x:42:
+utmp:x:43:
+video:x:44:kunal
+sasl:x:45:
+plugdev:x:46:kunal
+staff:x:50:
+games:x:60:
+users:x:100:kunal
+nogroup:x:65534:
+systemd-journal:x:999:
+systemd-network:x:998:
+crontab:x:997:
+systemd-timesync:x:996:
+input:x:995:
+sgx:x:994:
+kvm:x:993:
+render:x:992:
+messagebus:x:101:
+syslog:x:102:
+systemd-resolve:x:991:
+uuidd:x:103:
+_ssh:x:104:
+landscape:x:105:
+polkitd:x:990:
+admin:x:106:
+netdev:x:107:kunal
+kunal:x:1000:
+linux:x:1001:
+docker:x:1002:kunal
+python:x:1004:
+java:x:1005:
+cloud:x:1006:
+kunal@DESKTOP-G4FKIEJ:~/linux$ sudo chown cloud:group devopsfile.txt
+chown: invalid user: ‘cloud:group’
+kunal@DESKTOP-G4FKIEJ:~/linux$ ls -l
+total 8
+-rwxr-xr-x 1 kunal kunal 34 Jan 12 14:58 devopsfile.txt
+-rw-r--r-- 1 java  kunal 34 Jan 12 15:05 myfile.txt
+kunal@DESKTOP-G4FKIEJ:~/linux$ cd ..
+kunal@DESKTOP-G4FKIEJ:~$ ls
+devops  linux  softlink-file
+kunal@DESKTOP-G4FKIEJ:~$ cd linux/
+kunal@DESKTOP-G4FKIEJ:~/linux$ ls
+devopsfile.txt  myfile.txt
+kunal@DESKTOP-G4FKIEJ:~/linux$ ls -l
+total 8
+-rwxr-xr-x 1 kunal kunal 34 Jan 12 14:58 devopsfile.txt
+-rw-r--r-- 1 java  kunal 34 Jan 12 15:05 myfile.txt
+kunal@DESKTOP-G4FKIEJ:~/linux$ sudo chgrp cloud myfile.txt
+kunal@DESKTOP-G4FKIEJ:~/linux$ ls -l
+total 8
+-rwxr-xr-x 1 kunal kunal 34 Jan 12 14:58 devopsfile.txt
+-rw-r--r-- 1 java  cloud 34 Jan 12 15:05 myfile.txt
+kunal@DESKTOP-G4FKIEJ:~/linux$ cd ..
+kunal@DESKTOP-G4FKIEJ:~$ umask
+0022
+kunal@DESKTOP-G4FKIEJ:~$ zip data.zip /home/kunal/linux/devopsfile.txt
+Command 'zip' not found, but can be installed with:
+sudo apt install zip
+kunal@DESKTOP-G4FKIEJ:~$ sudo apt install zip
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  unzip
+The following NEW packages will be installed:
+  unzip zip
+0 upgraded, 2 newly installed, 0 to remove and 119 not upgraded.
+Need to get 350 kB of archives.
+After this operation, 933 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 unzip amd64 6.0-28ubuntu4.1 [174 kB]
+Get:2 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 zip amd64 3.0-13ubuntu0.2 [176 kB]
+Fetched 350 kB in 24s (14.7 kB/s)
+Selecting previously unselected package unzip.
+(Reading database ... 40737 files and directories currently installed.)
+Preparing to unpack .../unzip_6.0-28ubuntu4.1_amd64.deb ...
+Unpacking unzip (6.0-28ubuntu4.1) ...
+Selecting previously unselected package zip.
+Preparing to unpack .../zip_3.0-13ubuntu0.2_amd64.deb ...
+Unpacking zip (3.0-13ubuntu0.2) ...
+Setting up unzip (6.0-28ubuntu4.1) ...
+Setting up zip (3.0-13ubuntu0.2) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+kunal@DESKTOP-G4FKIEJ:~$ zip data.zip /home/kunal/linux/devopsfile.txt
+  adding: home/kunal/linux/devopsfile.txt (deflated 3%)
+kunal@DESKTOP-G4FKIEJ:~$ ls
+data.zip  devops  linux  softlink-file
+kunal@DESKTOP-G4FKIEJ:~$ unzip data.zip
+Archive:  data.zip
+  inflating: home/kunal/linux/devopsfile.txt
+kunal@DESKTOP-G4FKIEJ:~$ rm data.zip
+kunal@DESKTOP-G4FKIEJ:~$ ls
+devops  home  linux  softlink-file
+kunal@DESKTOP-G4FKIEJ:~$ cd linux.
+-bash: cd: linux.: No such file or directory
+kunal@DESKTOP-G4FKIEJ:~$ cd linux/
+kunal@DESKTOP-G4FKIEJ:~/linux$ ls
+devopsfile.txt  myfile.txt
+kunal@DESKTOP-G4FKIEJ:~/linux$ cd ..
+kunal@DESKTOP-G4FKIEJ:~$ zip data.zip devopsfile.txt
+        zip warning: name not matched: devopsfile.txt
+
+zip error: Nothing to do! (data.zip)
+kunal@DESKTOP-G4FKIEJ:~$ ls
+devops  home  linux  softlink-file
+kunal@DESKTOP-G4FKIEJ:~$ cd home/
+kunal@DESKTOP-G4FKIEJ:~/home$ ls
+kunal
+kunal@DESKTOP-G4FKIEJ:~/home$ cd kunal/
+kunal@DESKTOP-G4FKIEJ:~/home/kunal$ ls
+linux
+kunal@DESKTOP-G4FKIEJ:~/home/kunal$ cd ..
+kunal@DESKTOP-G4FKIEJ:~/home$ cd ..
+kunal@DESKTOP-G4FKIEJ:~$ cd linux/
+kunal@DESKTOP-G4FKIEJ:~/linux$ ls
+devopsfile.txt  myfile.txt
+kunal@DESKTOP-G4FKIEJ:~/linux$ zip data.zip devopsfile.txt
+  adding: devopsfile.txt (deflated 3%)
+kunal@DESKTOP-G4FKIEJ:~/linux$ ls
+data.zip  devopsfile.txt  myfile.txt
+kunal@DESKTOP-G4FKIEJ:~/linux$ cd ..
+kunal@DESKTOP-G4FKIEJ:~$ unzip data.zip
+unzip:  cannot find or open data.zip, data.zip.zip or data.zip.ZIP.
+kunal@DESKTOP-G4FKIEJ:~$ ls
+devops  home  linux  softlink-file
+kunal@DESKTOP-G4FKIEJ:~$ cd linux/
+kunal@DESKTOP-G4FKIEJ:~/linux$ ls
+data.zip  devopsfile.txt  myfile.txt
+kunal@DESKTOP-G4FKIEJ:~/linux$ cd ..
+kunal@DESKTOP-G4FKIEJ:~$ tar -cvzf data.tar.gz linux/
+linux/
+linux/data.zip
+linux/devopsfile.txt
+linux/myfile.txt
+kunal@DESKTOP-G4FKIEJ:~$ ls
+data.tar.gz  devops  home  linux  softlink-file
+kunal@DESKTOP-G4FKIEJ:~$ tar -xvzf data.tar.gz
+linux/
+linux/data.zip
+linux/devopsfile.txt
+linux/myfile.txt
+kunal@DESKTOP-G4FKIEJ:~$ ls
+data.tar.gz  devops  home  linux  softlink-file
